@@ -36,8 +36,8 @@ public class Main {
         System.out.println("\nEnter your choice:\t");
         Scanner sc = new Scanner(System.in);
         int  options =  sc.nextInt();
-        for(int j=1;j<=slen;j++){
-            if(options==j){
+//        for(int j=1;j<=slen;j++){
+//            if(options==j){
                 switch (options){
                     case 1:
                         System.out.println("Your saved expenses are listed below: \n");
@@ -81,17 +81,30 @@ public class Main {
                         System.out.println("You have made an invalid choice!");
                         break;
                 }
-            }
-        }
+  //          }
+//        }
 
     }
     private static void closeApp() {
         System.out.println("Closing your application... \nThank you!");
             }
-    private static void searchExpenses(ArrayList<Integer> arrayList) {
-        int leng = arrayList.size();
+    private static void searchExpenses(ArrayList<Integer> arrayList) {        
+        Scanner sc = new Scanner(System.in);
+    	boolean flag=false;
+//      int leng = arrayList.size();
         System.out.println("Enter the expense you need to search:\t");
-        //Complete the method
+        int key = sc.nextInt();
+        for(int expense : arrayList) {
+        	if(key==expense) {
+        		System.out.println("Expense "+ key + " found in the expenditure at position: " + (arrayList.indexOf(expense)+1));
+        		flag=true;
+        		break;
+        	}
+        }
+        if(flag==false) {
+        	System.out.println("Expense not found in the expendituure !!!");
+        }
+        
     }
     private static void sortExpenses(ArrayList<Integer> arrayList) {
         int arrlength =  arrayList.size();
