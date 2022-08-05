@@ -24,8 +24,8 @@ public class Main {
         for(int i=0; i<slen;i++){
             System.out.println(arr[i]);
             // display the all the Strings mentioned in the String array
-        }
-        ArrayList<Integer> arrlist = new ArrayList<Integer>();
+        }        
+ 		ArrayList<Integer> arrlist = new ArrayList<Integer>();
         ArrayList<Integer> expenses = new ArrayList<Integer>();
         expenses.add(1000);
         expenses.add(2300);
@@ -36,8 +36,9 @@ public class Main {
         System.out.println("\nEnter your choice:\t");
         Scanner sc = new Scanner(System.in);
         int  options =  sc.nextInt();
+//
 //        for(int j=1;j<=slen;j++){
-//            if(options==j){
+//           if(options==j){
                 switch (options){
                     case 1:
                         System.out.println("Your saved expenses are listed below: \n");
@@ -79,35 +80,47 @@ public class Main {
                         break;
                     default:
                         System.out.println("You have made an invalid choice!");
+                        optionsSelection();
+                        		// added to display menu again after a invalid input
                         break;
                 }
-  //          }
-//        }
+ //           }
+ //       }
 
     }
     private static void closeApp() {
         System.out.println("Closing your application... \nThank you!");
             }
-    private static void searchExpenses(ArrayList<Integer> arrayList) {        
-        Scanner sc = new Scanner(System.in);
+    
+    private static void searchExpenses(ArrayList<Integer> arrayList) {
+    	
+// Using Linear Search Algorithm as expenses in arrayList are not sorted  	
+        
+    	Scanner sc = new Scanner(System.in);
     	boolean flag=false;
 //      int leng = arrayList.size();
         System.out.println("Enter the expense you need to search:\t");
         int key = sc.nextInt();
+
         for(int expense : arrayList) {
         	if(key==expense) {
         		System.out.println("Expense "+ key + " found in the expenditure at position: " + (arrayList.indexOf(expense)+1));
         		flag=true;
         		break;
         	}
+        			// display position of the expense in the expenditure if found
         }
+        
         if(flag==false) {
         	System.out.println("Expense not found in the expendituure !!!");
         }
-        
+        			// display the message when expense if not found
     }
+    
+    
     private static void sortExpenses(ArrayList<Integer> arrayList) {
-        int arrlength =  arrayList.size();
-       //Complete the method. The expenses should be sorted in ascending order.
+    	
+
+
     }
 }
