@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class Main {
@@ -36,7 +37,8 @@ public class Main {
         System.out.println("\nEnter your choice:\t");
         Scanner sc = new Scanner(System.in);
         int  options =  sc.nextInt();
-//
+        
+// 'for' and 'if' statements are not required as switch statement is sufficient for the needed case checks on 'options'
 //        for(int j=1;j<=slen;j++){
 //           if(options==j){
                 switch (options){
@@ -104,7 +106,7 @@ public class Main {
 
         for(int expense : arrayList) {
         	if(key==expense) {
-        		System.out.println("Expense "+ key + " found in the expenditure at position: " + (arrayList.indexOf(expense)+1));
+        		System.out.println("Expense "+ key + " found in the expenditure at position: " + (arrayList.indexOf(expense)+1)+"\n");
         		flag=true;
         		break;
         	}
@@ -112,7 +114,7 @@ public class Main {
         }
         
         if(flag==false) {
-        	System.out.println("Expense not found in the expendituure !!!");
+        	System.out.println("Expense not found in the expendituure !!!\n");
         }
         			// display the message when expense if not found
     }
@@ -120,7 +122,14 @@ public class Main {
     
     private static void sortExpenses(ArrayList<Integer> arrayList) {
     	
-
-
+//    	int arrlength =  arrayList.size();
+    				// not needed as sort() method from Collections class is used
+    	
+    	Collections.sort(arrayList);
+    				// sort() function sorts the arrayList in ascending order by default
+    	
+    	System.out.println("Your expenses after sorting are listed below:\n");
+    	System.out.println(arrayList+"\n");
+    				// display the sorted expenditure
     }
 }
